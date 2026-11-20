@@ -4,7 +4,7 @@
     "email": "",
     "phone": "",
     "website": "https://jiaye2003.github.io",
-    "summary": "Prospective graduate student in Financial Engineering and Quantitative Finance.",
+    "summary": "Empirical asset pricing, systematic investing, and financial data analysis.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -24,7 +24,7 @@
       "keywords": [
         "asset pricing",
         "machine learning for financial data",
-        "robust PCA",
+        "regression-based PCA",
         "nonlinear factor models",
         "econometrics",
         "causal inference"

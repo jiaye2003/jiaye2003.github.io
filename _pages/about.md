@@ -6,25 +6,38 @@ redirect_from:
   - /about/
   - /about.html
 ---
-## Short Bio
 
-I am a prospective graduate student in Financial Engineering and Quantitative Finance. My academic interests lie at the intersection of machine learning, asset pricing, econometrics, and high-dimensional statistics.
+I work on empirical asset pricing, systematic investment strategies, and financial data analysis. I am interested in how firm characteristics and market information can inform interpretable models and portfolio decisions.
 
-My recent projects include equity strategy based on semi-parametric asset pricing model, cross-asset allocation strategy and CTA quantitative trading strategies.
+I hold a B.A. in Finance and a B.S. in Mathematics from Renmin University of China. In 2026, I also studied at the University of California, Davis as a visiting student.
 
+I am a quantitative research intern at China Merchants Securities, where my work combines regularized regression, dimensionality reduction, and machine learning for equity factor research. I have also worked as a research assistant with Gang Xiao at Renmin University's School of Finance, studying questions in asset pricing and corporate finance.
 
 ## Research Interests
 
-* Quantitative finance and asset pricing
-* Machine learning for financial data
-* Regression-based PCA and high-dimensional statistics
+* Empirical asset pricing and conditional factor models
+* Systematic investing and portfolio optimization
+* Statistical learning and high-dimensional financial data
+* Market microstructure and high-frequency data
 * Game theory
 
 ## Selected Projects
 
-* [Equity Strategy Based on Semi-parametric Asset Pricing Model](/portfolio/rpca-equity/)
-* [Cross-asset allocation Strategy](/portfolio/futures-momentum/)
+### [Semiparametric Asset Pricing in Chinese Equity Markets](/portfolio/rpca-equity/)
+
+I use regression-based PCA to distinguish the roles of firm characteristics in risk exposures and pricing errors. The project connects characteristic-managed portfolios and latent factor estimation with weekly equity strategies and out-of-sample evaluation.
+
+### [Cross-Asset Allocation in Chinese Markets](/portfolio/futures-momentum/)
+
+I combine equity and futures strategies in a cross-asset allocation framework. The futures component uses time-series momentum, cross-sectional momentum, and term-structure spread signals.
+
+### Market Microstructure and High-Frequency Data
+
+I built a reproducible pipeline on WRDS Cloud to clean and synchronize millisecond U.S. trade and quote data from 2012 to 2025. The project covers trade classification, liquidity measures, and estimates of informed trading, including PIN and VPIN.
 
 ## Links
 
-* [CV](/files/Jia_Ye_CV.pdf)
+* [Curriculum Vitae](/files/Jia_Ye_CV.pdf)
+* [GitHub](https://github.com/jiaye2003)
+* [LinkedIn](https://www.linkedin.com/in/jia-ye-4bb855381/)
+* [Email](mailto:jiay200308@gmail.com)
