@@ -17,11 +17,11 @@ $$
 
 Where
 
-- $y_{it}$ is the excess return of stock $i$ at period $t$;
-- $z_{it}$ is the charactistic(feature) vector of stock $i$ at period $t$;
-- $f_t$ is the vector of latent factors;
-- $\beta(z_{it})$ is the factor exposure, it is assumed to be a function of $z_{it}$;
-- $\alpha(z_{it})$ is the pricing error left over by this model, assumed to be a function of $z_{it}$.
+- $$y_{it}$$ is the excess return of stock $$i$$ at period $$t$$;
+- $$z_{it}$$ is the charactistic(feature) vector of stock $$i$$ at period $$t$$;
+- $$f_t$$ is the vector of latent factors;
+- $$\beta(z_{it})$$ is the factor exposure, it is assumed to be a function of $$z_{it}$$;
+- $$\alpha(z_{it})$$ is the pricing error left over by this model, assumed to be a function of $$z_{it}$$.
 
 The main contribution of this method is to disentangles the role of features into risk exposure (beta) and pricing error (alpha), and use them to predict future price.
 
@@ -42,7 +42,7 @@ $$
 r_{i,t+1} = z_{it}^{\top} a + z_{it}^{\top} B f_{t+1} + \varepsilon_{i,t+1}.
 $$
 
-Here, $a$ captures the characteristic-related pricing-error component, while $B$ maps characteristics into factor exposures. A constant can be included in $z_{it}$ to allow for intercepts.
+Here, $$a$$ captures the characteristic-related pricing-error component, while $$B$$ maps characteristics into factor exposures. A constant can be included in $$z_{it}$$ to allow for intercepts.
 
 # 2 Data and Sample
 
@@ -117,15 +117,15 @@ The trading strategies use **raw-return managed portfolios**. Excess returns are
 
 ## 3.1 Managed portfolios and the pure-alpha strategy
 
-Let $r_t$ be the vector of stock returns and $Z_{t-1}$ the feature(Characteristic) matrix, containing the 30 selected features and an intercept. Managed returns are
+Let $$r_t$$ be the vector of stock returns and $$Z_{t-1}$$ the feature(Characteristic) matrix, containing the 30 selected features and an intercept. Managed returns are
 
 $$
 g_t=Z_{t-1}^{+}r_t,
 $$
 
-where $+$ denotes the Moore–Penrose inverse. With a full-rank design, this equals $(Z_{t-1}^{\top}Z_{t-1})^{-1}Z_{t-1}^{\top}r_t$. The same regression operator is used to map every managed-portfolio direction back into stock weights.
+where $$+$$ denotes the Moore–Penrose inverse. With a full-rank design, this equals $$(Z_{t-1}^{\top}Z_{t-1})^{-1}Z_{t-1}^{\top}r_t$$. The same regression operator is used to map every managed-portfolio direction back into stock weights.
 
-At period t, PCA is estimated from demeaned historical managed returns. With orthonormal loading columns $B_{t-1}$, define
+At period t, PCA is estimated from demeaned historical managed returns. With orthonormal loading columns $$B_{t-1}$$, define
 
 $$
 a_{t-1}=(I-B_{t-1}B_{t-1}^{\top})\overline g_{t-1},
@@ -133,7 +133,7 @@ a_{t-1}=(I-B_{t-1}B_{t-1}^{\top})\overline g_{t-1},
 f_t=B_{t-1}^{\top}g_t.
 $$
 
-The pure-alpha direction is $h_{\alpha,t-1}=a_{t-1}$, giving the unscaled payoff
+The pure-alpha direction is $$h_{\alpha,t-1}=a_{t-1}$$, giving the unscaled payoff
 
 $$
 R^0_{\alpha,t}=a_{t-1}^{\top}g_t,
@@ -145,7 +145,7 @@ The current realized return determines the payoff, but it is not needed to deter
 
 ## 3.2 Factor MVE strategy
 
-Using the current training-window loadings, I constructed the history of factor-return series. Let $\mu_{f,t-1}$ and $\Sigma_{f,t-1}$ denote its sample mean and covariance. The factor mean–variance direction is
+Using the current training-window loadings, I constructed the history of factor-return series. Let $$\mu_{f,t-1}$$ and $$\Sigma_{f,t-1}$$ denote its sample mean and covariance. The factor mean–variance direction is
 
 $$
 q_{f,t-1}=\Sigma_{f,t-1}^{-1}\mu_{f,t-1},
@@ -153,11 +153,11 @@ q_{f,t-1}=\Sigma_{f,t-1}^{-1}\mu_{f,t-1},
 h_{\mathrm{MVE},t-1}=B_{t-1}q_{f,t-1}.
 $$
 
-Its unscaled payoff is $R^0_{\mathrm{MVE},t}=q_{f,t-1}^{\top}f_t$. This optimizer uses the raw-return moments of the implemented strategy and does not impose a unit-budget or fixed-gross-exposure constraint.
+Its unscaled payoff is $$R^0_{\mathrm{MVE},t}=q_{f,t-1}^{\top}f_t$$. This optimizer uses the raw-return moments of the implemented strategy and does not impose a unit-budget or fixed-gross-exposure constraint.
 
 ## 3.3 Combined Alpha-MVE strategy
 
-The combined strategy jointly optimizes the alpha portfolio and all ten factors. For each historical training period $s$, form
+The combined strategy jointly optimizes the alpha portfolio and all ten factors. For each historical training period $$s$$, form
 
 $$
 x_s=
@@ -192,7 +192,7 @@ w_t=c_t(Z_{t-1}^{+})^{\top}h_{t-1},
 c_t=\frac{1}{\widehat\sigma_{m,t-1}}.
 $$
 
-Here $\widehat\sigma_{m,t-1}$ is the sample standard deviation (`ddof=1`) of the formation-eligible-market, formation-capitalization-weighted weekly return over the actual training window. IS uses its full-sample value; OOS uses only earlier training periods. This scaling applies to final stock weights, not to the managed returns or PCA loadings. It does **not** target a common strategy volatility, impose full investment, or cap gross leverage.
+Here $$\widehat\sigma_{m,t-1}$$ is the sample standard deviation (`ddof=1`) of the formation-eligible-market, formation-capitalization-weighted weekly return over the actual training window. IS uses its full-sample value; OOS uses only earlier training periods. This scaling applies to final stock weights, not to the managed returns or PCA loadings. It does **not** target a common strategy volatility, impose full investment, or cap gross leverage.
 
 The results distinguish two portfolios:
 
@@ -232,7 +232,7 @@ R_t^{\mathrm{total}}=L_tR_t^L+S_tR_t^S,
 R_t^{LS}=R_t^L+R_t^S.
 $$
 
-Normalizing each leg removes the common positive multiplier $c_t$, but also changes the strategy's long and short exposure magnitudes. Because those exposures vary over time, the two reported Sharpe ratios need not coincide.
+Normalizing each leg removes the common positive multiplier $$c_t$$, but also changes the strategy's long and short exposure magnitudes. Because those exposures vary over time, the two reported Sharpe ratios need not coincide.
 
 For either stock-weight convention, the Sharpe calculation uses
 
@@ -269,7 +269,7 @@ The normalized OOS MVE, Alpha, and Alpha-MVE portfolios have mean **weekly** pay
 
 ## 3.6 Long-only strategies
 
-I also evaluates two constrained trading strategies. `MVE-nonnegative` combines the full-market long-only portfolio with ten factors; `MVE-alpha-nonnegative` additionally includes the alpha portfolio. For the relevant training-return mean $\mu$, covariance $\Sigma$, and current stock weight mapping M, the optimizer solves
+I also evaluates two constrained trading strategies. `MVE-nonnegative` combines the full-market long-only portfolio with ten factors; `MVE-alpha-nonnegative` additionally includes the alpha portfolio. For the relevant training-return mean $$\mu$$, covariance $$\Sigma$$, and current stock weight mapping M, the optimizer solves
 
 $$
 \min_q\;\frac12 q^{\top}\Sigma q-\mu^{\top}q

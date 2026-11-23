@@ -20,6 +20,23 @@ See more info at https://academicpages.github.io/
 Additional tutorials for working with the Academic Pages template can be found at the following sites:
 - https://jayrobwilliams.com/posts/2020/06/academic-website/
 
+## Writing equations
+
+This site uses kramdown with MathJax. In Markdown, use double dollar signs for
+inline math inside a paragraph, for example `The exposure is $$\beta_{it}$$.`
+For a displayed equation, put `$$` on separate lines with blank lines before
+and after the block:
+
+```markdown
+$$
+r_{it} = \beta_{it}^{\top} f_t + \varepsilon_{it}.
+$$
+```
+
+Kramdown protects the TeX from Markdown formatting and generates MathJax's
+inline or display delimiters. Avoid single-dollar math and unescaped
+`\(...\)` in Markdown source. See the [kramdown math syntax](https://kramdown.gettalong.org/syntax.html#math-blocks).
+
 ## Running locally
 
 When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
